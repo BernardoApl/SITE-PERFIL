@@ -1,10 +1,11 @@
 // Initialize Typed.js
 const typed = new Typed('#typed', {
-    strings: ['Desenvolvedor Web'],
+    strings: ['Desenvolvedor Web','Designer UI/UX', 'Especialista em Responsividade','Entusiasta de Design Digital'],
     typeSpeed: 70,
     backSpeed: 50,
     loop: true
-  });
+});
+
   
   // Mobile Menu Toggle
   const menuToggle = document.querySelector('.menu-toggle');
