@@ -6,50 +6,50 @@ const typed = new Typed('#typed', {
     loop: true
 });
 
-  
+
   // Mobile Menu Toggle
   const menuToggle = document.querySelector('.menu-toggle');
   const navItems = document.querySelector('.nav-items');
-  
+
   menuToggle.addEventListener('click', () => {
     navItems.classList.toggle('active');
   });
-  
+
   // Smooth Scrolling for Navigation Links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
-  
+
       const targetId = this.getAttribute('href');
       const targetElement = document.querySelector(targetId);
-  
+
       window.scrollTo({
         top: targetElement.offsetTop - 70,
         behavior: 'smooth'
       });
-  
+
       // Update active link
       document.querySelectorAll('.nav-items a').forEach(link => link.classList.remove('active'));
       this.classList.add('active');
-  
+
       // Close mobile menu if open
       if (navItems.classList.contains('active')) {
         navItems.classList.remove('active');
       }
     });
   });
-  
+
   // Função para buscar e exibir projetos do GitHub
   async function fetchGitHubProjects() {
     const username = 'BernardoApl';
     const projectsContainer = document.getElementById('projects-container');
     const userInfoContainer = document.getElementById('github-user-info');
-  
+
     try {
       // Buscar informações do usuário
       const userResponse = await fetch(`https://api.github.com/users/${username}`);
       const userData = await userResponse.json();
-  
+
       // Exibir informações do usuário
       userInfoContainer.innerHTML = `
         <img src="${userData.avatar_url}" alt="${userData.name || username}" />
@@ -68,22 +68,22 @@ const typed = new Typed('#typed', {
           </div>
         </div>
       `;
-  
+
       // Buscar repositórios
       const reposResponse = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=9`);
       const repos = await reposResponse.json();
-  
+
       // Limpar o container
       projectsContainer.innerHTML = '';
-  
+
       // Exibir repositórios
       repos.forEach(repo => {
         const projectCard = document.createElement('div');
         projectCard.className = 'project-card';
-  
+
         // Determinar linguagem principal
         const language = repo.language || 'N/A';
-  
+
         projectCard.innerHTML = `
           <div class="project-info">
             <h3>${repo.name}</h3>
@@ -99,10 +99,10 @@ const typed = new Typed('#typed', {
             </div>
           </div>
         `;
-  
+
         projectsContainer.appendChild(projectCard);
       });
-  
+
     } catch (error) {
       console.error('Erro ao buscar projetos do GitHub:', error);
       projectsContainer.innerHTML = `
@@ -112,7 +112,7 @@ const typed = new Typed('#typed', {
       `;
     }
   }
-  
+
   // Chamar a função quando a seção de projetos está visível
   window.addEventListener('scroll', () => {
     if (isInViewport(document.querySelector('#projects')) && !projectsLoaded) {
@@ -120,29 +120,29 @@ const typed = new Typed('#typed', {
       projectsLoaded = true;
     }
   });
-  
+
   // Variável para controlar se os projetos já foram carregados
   let projectsLoaded = false;
-  
+
   // Animate skills when in viewport
   function animateSkills() {
     const skillBars = document.querySelectorAll('.skill-progress');
-  
+
     skillBars.forEach(bar => {
       const progress = bar.dataset.progress + '%';
       bar.style.width = progress;
     });
   }
-  
+
   // Animate stats counter when in viewport
   function animateStats() {
     const stats = document.querySelectorAll('.stat-number');
-  
+
     stats.forEach(stat => {
       const target = parseInt(stat.dataset.count);
       const increment = target / 100;
       let current = 0;
-  
+
       const updateCount = () => {
         if (current < target) {
           current += increment;
@@ -152,11 +152,11 @@ const typed = new Typed('#typed', {
           stat.textContent = target;
         }
       };
-  
+
       updateCount();
     });
   }
-  
+
   // Check if element is in viewport
   function isInViewport(element) {
     const rect = element.getBoundingClientRect();
@@ -167,28 +167,28 @@ const typed = new Typed('#typed', {
       rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
   }
-  
+
   // Handle scroll events for animations
   let skillsAnimated = false;
   let statsAnimated = false;
-  
+
   window.addEventListener('scroll', () => {
     // Animate skills when skills section is in viewport
     if (!skillsAnimated && isInViewport(document.querySelector('.skills'))) {
       animateSkills();
       skillsAnimated = true;
     }
-  
+
     // Animate stats when about section is in viewport
     if (!statsAnimated && isInViewport(document.querySelector('.stats'))) {
       animateStats();
       statsAnimated = true;
     }
-  
+
     // Update active nav link based on scroll position
     const sections = document.querySelectorAll('section');
     let currentSection = '';
-  
+
     sections.forEach(section => {
       const sectionTop = section.offsetTop - 100;
       const sectionHeight = section.clientHeight;
@@ -196,7 +196,7 @@ const typed = new Typed('#typed', {
         currentSection = section.getAttribute('id');
       }
     });
-  
+
     document.querySelectorAll('.nav-items a').forEach(link => {
       link.classList.remove('active');
       if (link.getAttribute('href') === `#${currentSection}`) {
@@ -204,33 +204,33 @@ const typed = new Typed('#typed', {
       }
     });
   });
-  
+
   // Form Submission
   const contactForm = document.getElementById('contact-form');
-  
+
   // Inicializa o EmailJS com sua chave pública
   emailjs.init("RQ1dSXDL1URKXCGsG"); // Sua chave pública do EmailJS
-  
+
   contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
-  
+
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const subject = document.getElementById('subject').value;
     const message = document.getElementById('message').value;
-  
+
     // Validation
     if (!name || !email || !subject || !message) {
       alert('Por favor, preencha todos os campos');
       return;
     }
-  
+
     // Desabilitar o botão enquanto envia
     const submitBtn = contactForm.querySelector('button[type="submit"]');
     const originalBtnText = submitBtn.textContent;
     submitBtn.textContent = 'Enviando...';
     submitBtn.disabled = true;
-  
+
     // Parâmetros para o template do EmailJS
     const templateParams = {
       to_name: "Bernardo",
@@ -240,7 +240,7 @@ const typed = new Typed('#typed', {
       subject: subject,
       message: message
     };
-  
+
     // Enviar email usando EmailJS
     emailjs.send('service_mq054m8', 'template_lf5n7os', templateParams)
       .then(function(response) {
@@ -257,9 +257,66 @@ const typed = new Typed('#typed', {
         submitBtn.disabled = false;
       });
   });
+
+  // Função para criar partículas animadas
+function createParticles() {
+  const containers = [
+    document.getElementById('particles-container'),
+    document.getElementById('particles-home'),
+    document.getElementById('particles-about'),
+    document.getElementById('particles-projects'),
+    document.getElementById('particles-contact')
+  ];
   
-  // Initialize animations on page load
+  containers.forEach(container => {
+    if (!container) return;
+    
+    // Limpar partículas existentes
+    container.innerHTML = '';
+    
+    // Número de partículas baseado no tamanho da tela
+    const numParticles = Math.floor(window.innerWidth / 15);
+    
+    // Criar partículas
+    for (let i = 0; i < numParticles; i++) {
+      const particle = document.createElement('span');
+      particle.className = 'particle';
+      
+      // Tamanho aleatório
+      const size = Math.random() * 20 + 5;
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
+      
+      // Posição inicial aleatória
+      const posX = Math.random() * 100;
+      const posY = Math.random() * 100;
+      particle.style.left = `${posX}%`;
+      particle.style.top = `${posY}%`;
+      
+      // Opacidade aleatória
+      particle.style.opacity = Math.random() * 0.5 + 0.1;
+      
+      // Duração da animação aleatória
+      const duration = Math.random() * 15 + 10;
+      particle.style.animationDuration = `${duration}s`;
+      
+      // Atraso da animação aleatório
+      const delay = Math.random() * 5;
+      particle.style.animationDelay = `${delay}s`;
+      
+      container.appendChild(particle);
+    }
+  });
+}
+
+// Initialize animations on page load
   window.addEventListener('load', () => {
+    // Criar partículas animadas
+    createParticles();
+    
+    // Recriar partículas ao redimensionar a janela
+    window.addEventListener('resize', createParticles);
+    
     // Add mobile menu styling
     document.head.insertAdjacentHTML('beforeend', `
       <style>
@@ -276,27 +333,26 @@ const typed = new Typed('#typed', {
             padding: 20px;
             z-index: 100;
           }
-  
+
           .nav-items.active a {
             margin: 10px 0;
           }
         }
       </style>
     `);
-  
+
     // Check if sections are already in viewport on page load
     if (isInViewport(document.querySelector('.skills'))) {
       animateSkills();
       skillsAnimated = true;
     }
-  
+
     if (isInViewport(document.querySelector('.stats'))) {
       animateStats();
       statsAnimated = true;
     }
-  
+
     // Carregar projetos do GitHub ao iniciar
     fetchGitHubProjects();
     projectsLoaded = true;
   });
-  
