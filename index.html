@@ -1,198 +1,154 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Perfil</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="style.css" rel="stylesheet" type="text/css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Meu Portfólio — Seu Nome</title>
+  <meta name="description" content="Portfólio de desenvolvedor — projetos, habilidades e contato." />
+
+  <!-- Fonte -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS externo -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div class="navbar">
-      <div class="logo">
-        <h1>Perfil</h1>
+  <div class="container">
+    <header>
+      <div class="avatar">
+        <img src="assets/avatar.jpg" alt="Avatar"
+             onerror="this.src='https://via.placeholder.com/150x150?text=Avatar'" />
       </div>
-      <div class="nav-items">
-        <a href="#home" class="active">Início</a>
-        <a href="#about">Sobre</a>
-        <a href="#skills">Habilidades</a>
-        <a href="#projects">Projetos</a>
-        <a href="#contact">Contato</a>
+      <div class="intro">
+        <h1>Seu Nome — Desenvolvedor</h1>
+        <p>Desenvolvimento em C/C++/Java/Front-end • Soluções robustas e escaláveis</p>
       </div>
-      <div class="menu-toggle">
-        <i class="fas fa-bars"></i>
-      </div>
-    </div>
-  </header>
+    </header>
 
-  <section id="home" class="hero">
-    <div class="particles-container" id="particles-home"></div>
-    <div class="hero-content">
-      <h1>Bem-Vindo<span class="highlight"></span></h1>
-      <p class="typed-text">Sou um <span id="typed"></span></p>
-      <div class="cta-buttons">
-        <a href="#contact" class="btn primary-btn">Contate-me</a>
-        <a href="#projects" class="btn secondary-btn">Ver Meu Trabalho</a>
-      </div>
-      <div class="social-links">
-        <a href="https://github.com/BernardoApl?tab=repositories" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/bernardo-lopes-3500b92b6/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <div class="grid">
+      <!-- Conteúdo principal -->
+      <main>
+        <section class="hero card">
+          <h2>Projetos em destaque</h2>
+          <p style="color:var(--muted);margin-top:8px">
+            Clique em "Ver" para abrir detalhes. Os cards estão maiores para facilitar a visualização.
+          </p>
+        </section>
 
-      </div>
-    </div>
-  </section>
-
-  <section id="about" class="about">
-    <div class="particles-container" id="particles-about"></div>
-    <div class="container">
-      <h2 class="section-title">Sobre Mim</h2>
-      <div class="about-content">
-        <div class="about-img">
-          <img src="Perfil.jpeg" alt="Foto de Perfil">
-        </div>
-      <div class="about-text">
-       <p>Meu nome é Bernardo, um estudante de Engenharia de Software e desenvolvedor baseado em Betim, Brasil. Durante minha trajetória acadêmica, participei de vários projetos que envolvem o desenvolvimento de software, sempre buscando aplicar boas práticas de engenharia, como análise de requisitos, modelagem de sistemas e testes automatizados. Meu foco é criar soluções eficientes, escaláveis e de alta qualidade.</p>
-<p>Nascido em 2005 em Betim, Brasil, acredito que a tecnologia tem o poder de transformar o mundo de forma significativa. Como futuro engenheiro de software, estou sempre buscando aprender novas metodologias, como métodos ágeis, arquitetura de software e gerenciamento de projetos, para melhorar cada vez mais as soluções que crio.</p>
-<p>Com o objetivo de contribuir para o desenvolvimento de software de qualidade, estou em constante aprendizado sobre as melhores práticas da Engenharia de Software, como análise de requisitos, modelagem de sistemas, métodos ágeis, arquitetura de software e gerenciamento de projetos. Acredito que uma boa base teórica aliada à prática é essencial para entregar soluções inovadoras e que atendam de maneira eficiente às necessidades dos usuários.</p>
-
-      </div>
-    </div>
-  </section>
-
-  <section id="skills" class="skills">
-    <div class="particles-container" id="particles-container"></div>
-    <div class="container">
-     <h2 class="section-title">Minhas Habilidades</h2>
-      <div class="skills-content">
-        <div class="skill-category">
-          <h3>Gestão de Projetos</h3>
-          <div class="skill-item">
-            <div class="skill-name">Metodologia Ágil</div>
-            <div class="skill-bar">
-              <div class="skill-progress" data-progress="80"></div>
+        <section class="projects" id="projects">
+          <!-- Projeto 1 -->
+          <article class="project-card" 
+                   data-title="CarExpress"
+                   data-desc="Sistema em C++ para gerenciamento de vendas e rotas com backup em .dat"
+                   data-img="assets/projects/carexpress.png">
+            <div class="project-thumb">
+              <img src="assets/projects/carexpress.png" alt="CarExpress"
+                   onerror="this.src='https://via.placeholder.com/600x400?text=CarExpress'">
             </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-name">Liderança de Equipe</div>
-            <div class="skill-bar">
-              <div class="skill-progress" data-progress="85"></div>
+            <div class="project-body">
+              <h3>CarExpress — Sistema de Vendas (C++)</h3>
+              <p>CRUD completo, cálculo de rotas, backup e restauração em arquivos .dat.</p>
+              <div class="project-meta">
+                <span class="tag">C++</span>
+                <span class="tag">Arquivos .dat</span>
+                <span class="tag">Console App</span>
+              </div>
+              <div class="project-actions">
+                <button class="btn" data-action="open">Ver</button>
+                <a class="btn btn-primary" href="#" target="_blank">Repositório</a>
+              </div>
             </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-name">Gestão de Riscos</div>
-            <div class="skill-bar">
-              <div class="skill-progress" data-progress="67"></div>
+          </article>
+
+          <!-- Projeto 2 -->
+          <article class="project-card" 
+                   data-title="Agent Hospital"
+                   data-desc="Simulação hospitalar com agentes médicos usando LLMs."
+                   data-img="assets/projects/agent_hospital.png">
+            <div class="project-thumb">
+              <img src="assets/projects/agent_hospital.png" alt="Agent Hospital"
+                   onerror="this.src='https://via.placeholder.com/600x400?text=Agent+Hospital'">
             </div>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3>Criatividade</h3>
-          <div class="skill-item">
-            <div class="skill-name">Resolução de Problemas</div>
-            <div class="skill-bar">
-              <div class="skill-progress" data-progress="87"></div>
+            <div class="project-body">
+              <h3>Agent Hospital — Simulação</h3>
+              <p>Projeto de simulação usando LLMs para fins educativos e clínicos.</p>
+              <div class="project-meta">
+                <span class="tag">Python</span>
+                <span class="tag">LLM</span>
+                <span class="tag">Simulação</span>
+              </div>
+              <div class="project-actions">
+                <button class="btn" data-action="open">Ver</button>
+                <a class="btn btn-primary" href="#" target="_blank">Repositório</a>
+              </div>
             </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-name">Design Thinking</div>
-            <div class="skill-bar">
-              <div class="skill-progress" data-progress="82"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-name">Inovação</div>
-            <div class="skill-bar">
-              <div class="skill-progress" data-progress="74"></div>
-            </div>
-          </div>
-        </div>
-        <div class="tech-skills">
-        <h3>Linguagens e Tecnologias</h3>
-        <div class="tech-badges">
-          <a href="#"><img src="https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=white" alt="C"></a>
-          <a href="#"><img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" alt="C++"></a>
-          <a href="#"><img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5"></a>
-          <a href="#"><img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3"></a>
-          <a href="#"><img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript"></a>
-          <a href="#"><img src="https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap"></a>
+          </article>
+        </section>
+
+        <footer>
+          <p>Feito por Seu Nome • Atualizado em 2025</p>
+        </footer>
+      </main>
+
+      <!-- Sidebar -->
+      <aside>
+        <div class="card">
+          <h3>Habilidades</h3>
+          <ul class="skills-list">
+            <li><img alt="C" src="https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=white"></li>
+            <li><img alt="C++" src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white"></li>
+            <li><img alt="Java" src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white"></li>
+            <li><img alt="HTML5" src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"></li>
+            <li><img alt="CSS3" src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"></li>
+            <li><img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"></li>
+            <li><img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white"></li>
+            <li><img alt="Bootstrap" src="https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white"></li>
+            <li><img alt="Database" src="https://img.shields.io/badge/Database-026E00?style=for-the-badge&logo=database&logoColor=white"></li>
+            <li><img alt="MySQL" src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white"></li>
+            <li><img alt="Firebase" src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black"></li>
+          </ul>
         </div>
 
-        
-      </div>
-      </div>
+        <div class="card">
+          <h3>Ferramentas</h3>
+          <div class="skills-list">
+            <img alt="GitHub" src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white">
+            <img alt="VS Code" src="https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white">
+            <img alt="Replit" src="https://img.shields.io/badge/Replit-FF4500?style=for-the-badge&logo=replit&logoColor=white">
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Contato</h3>
+          <form class="contact-form" id="contactForm" onsubmit="return handleContact(event)">
+            <input type="text" id="name" placeholder="Seu nome" required>
+            <input type="email" id="email" placeholder="seu@exemplo.com" required>
+            <textarea id="message" placeholder="Mensagem" required></textarea>
+            <button class="btn btn-primary" type="submit">Enviar</button>
+          </form>
+        </div>
+      </aside>
     </div>
-  </section>
+  </div>
 
-  <section id="projects" class="projects">
-    <div class="particles-container" id="particles-projects"></div>
-    <div class="container">
-      <h2 class="section-title">Meus Projetos GitHub</h2>
-      <div class="github-profile">
-        <div id="github-user-info" class="github-user-info">
-          <!-- Informações do usuário do GitHub serão inseridas aqui via JavaScript -->
-        </div>
-      </div>
-      <div id="projects-container" class="projects-container">
-        <!-- Os projetos do GitHub serão inseridos aqui via JavaScript -->
-        <div class="loading">Carregando projetos do GitHub...</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="contact">
-    <div class="particles-container" id="particles-contact"></div>
-    <div class="container">
-      <h2 class="section-title">Fale Comigo</h2>
-      <div class="contact-content">
-        <div class="contact-info">
-          <div class="contact-item">
-            <i class="fas fa-envelope"></i>
-            <p>b.lopes.software@gmail.com</p>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-phone"></i>
-            <p>+55 (31) 97182-0224</p>
-          </div>
-          <div class="contact-item">
-            <i class="fas fa-map-marker-alt"></i>
-            <p>Betim, Brasil</p>
-          </div>
-        </div>
-        <form id="contact-form" class="contact-form">
-          <div class="form-group">
-            <input type="text" id="name" placeholder="Seu Nome" required>
-          </div>
-          <div class="form-group">
-            <input type="email" id="email" placeholder="Seu Email" required>
-          </div>
-          <div class="form-group">
-            <input type="text" id="subject" placeholder="Assunto" required>
-          </div>
-          <div class="form-group">
-            <textarea id="message" placeholder="Sua Mensagem" required></textarea>
-          </div>
-          <button type="submit" class="btn primary-btn">Enviar Mensagem</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <p>&copy; 2025 Bernardo Lopes.</p>
-        <div class="social-links">
-          <a href="https://github.com/BernardoApl?tab=repositories" target="_blank"><i class="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/bernardo-lopes-3500b92b6/" target="_blank"><i class="fab fa-linkedin"></i></a>
-
+  <!-- Modal -->
+  <div id="projectModal">
+    <div class="modal-content">
+      <button id="closeModal">✕</button>
+      <div class="modal-body">
+        <div class="modal-img"><img id="modalImg" src="" alt="project image"></div>
+        <div class="modal-info">
+          <h2 id="modalTitle"></h2>
+          <p id="modalDesc"></p>
+          <div id="modalTags"></div>
+          <a id="modalRepo" class="btn btn-primary" href="#" target="_blank">Repositório</a>
         </div>
       </div>
     </div>
-  </footer>
+  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <!-- JS externo -->
   <script src="script.js"></script>
 </body>
 </html>
